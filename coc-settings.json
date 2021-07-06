@@ -1,0 +1,23 @@
+{
+    "coc.source.tag.enable": true,
+    "coc.source.tag.priority": 1,
+    "languageserver":
+    {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cc", "cpp", "c++", "h", "hpp"],
+            "rootPatterns": [".ccls", "compile_commands.json"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/home/ampatzid/SSD/ccls"
+                }
+            }
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "disableWorkspaceFolders": true,
+            "filetypes": ["go"]
+        }
+    }
+}

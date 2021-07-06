@@ -1,0 +1,11 @@
+source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/colors/acononedark.vim
+source $HOME/.config/nvim/settings/highlights.vim
+source $HOME/.config/nvim/settings/paste.vim
+source $HOME/.config/nvim/settings/nvimconfig.vim
+source $HOME/.config/nvim/settings/vim-bookmarks.vim
+source $HOME/.config/nvim/settings/vim-ccls.vim
+source $HOME/.config/nvim/settings/vim-comentary.vim
+source $HOME/.config/nvim/settings/vim-fugitive.vim
+source $HOME/.config/nvim/settings/vim-gitgutter.vim
+source $HOME/.config/nvim/settings/vim-tagbar.vim
