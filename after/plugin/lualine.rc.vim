@@ -1,10 +1,9 @@
-local status, lualine = pcall(require, "lualine")
-if (not status) then return end
+lua << EOF
 
-lualine.setup {
+require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'solarized_dark',
+    theme = 'onedark',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -32,3 +31,5 @@ lualine.setup {
   tabline = {},
   extensions = {'fugitive'}
 }
+
+EOF

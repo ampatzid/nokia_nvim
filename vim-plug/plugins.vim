@@ -15,25 +15,9 @@ Plug 'tpope/vim-unimpaired'
 
 " }}}
 
-" {{{
-
-if has("nvim")
-    Plug 'hoob3rt/lualine.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'glepnir/lspsaga.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-lua/completion-nvim'
-    Plug 'm-pilia/vim-ccls'
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-endif
-
-" }}}
-
 " {{{ Repo Utilities
 
+Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
@@ -60,6 +44,25 @@ Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+" }}}
+
+" {{{
+
+if has("nvim")
+    Plug 'hoob3rt/lualine.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'm-pilia/vim-ccls'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'folke/lsp-colors.nvim'
+endif
 
 " }}}
 

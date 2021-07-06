@@ -11,6 +11,20 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+    -- Suppress virtual text.
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- disable virtual text
+            virtual_text = false,
+
+            -- show signs
+            signs = true,
+
+            -- delay update diagnostics
+            update_in_insert = false,
+        }
+    )
+
     -- Completion.
     require 'completion'.on_attach(client, bufnr)
      --protocol.SymbolKind = { }
