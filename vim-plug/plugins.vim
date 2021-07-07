@@ -50,6 +50,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " {{{
 
 if has("nvim")
+    Plug 'kabouzeid/nvim-lspinstall'
     Plug 'hoob3rt/lualine.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'glepnir/lspsaga.nvim'
