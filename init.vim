@@ -6,6 +6,7 @@ source $HOME/.config/nvim/settings/nvimconfig.vim
 source $HOME/.config/nvim/settings/vim-bookmarks.vim
 source $HOME/.config/nvim/settings/vim-ccls.vim
 source $HOME/.config/nvim/settings/vim-comentary.vim
+source $HOME/.config/nvim/settings/vim-delimitMate.vim
 source $HOME/.config/nvim/settings/vim-fugitive.vim
 source $HOME/.config/nvim/settings/vim-gitgutter.vim
 source $HOME/.config/nvim/settings/vim-tagbar.vim
