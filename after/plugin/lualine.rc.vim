@@ -1,5 +1,9 @@
 lua << EOF
 
+local function getFunctionName()
+    return vim.api.nvim_call_function( "tagbar#currenttag", {'%s', ''})
+end
+
 require'lualine'.setup {
   options = {
     icons_enabled = true,
@@ -13,6 +17,7 @@ require'lualine'.setup {
     lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {
+      { getFunctionName },
       { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
       'encoding',
       'filetype'
