@@ -74,7 +74,7 @@ nvim_lsp.ccls.setup {
         filetypes = { "c", "cc", "cpp", "c++", "h", "hpp" },
         init_options = {
             cache = {
-                directory = "$HOME/SSD/ccls"
+                directory = "CCLS_CACHE_PATH"
                 }
             },
         root_dir = {

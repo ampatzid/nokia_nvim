@@ -9,7 +9,7 @@
             "rootPatterns": [".ccls", "compile_commands.json"],
             "initializationOptions": {
                 "cache": {
-                    "directory": "%CCLS_CACHE"
+                    "directory": "$CCLS_CACHE_PATH"
                 }
             }
         },
