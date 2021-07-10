@@ -9,7 +9,7 @@
             "rootPatterns": [".ccls", "compile_commands.json"],
             "initializationOptions": {
                 "cache": {
-                    "directory": "/home/ampatzid/SSD/ccls"
+                    "directory": "%CCLS_CACHE"
                 }
             }
         },
