@@ -9,4 +9,6 @@ source $HOME/.config/nvim/settings/vim-comentary.vim
 source $HOME/.config/nvim/settings/vim-delimitMate.vim
 source $HOME/.config/nvim/settings/vim-fugitive.vim
 source $HOME/.config/nvim/settings/vim-gitgutter.vim
+source $HOME/.config/nvim/settings/vim-nerdtree.vim
+source $HOME/.config/nvim/settings/vim-netwr.vim
 source $HOME/.config/nvim/settings/vim-tagbar.vim

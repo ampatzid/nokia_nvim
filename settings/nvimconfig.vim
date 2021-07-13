@@ -31,9 +31,6 @@ set undofile
 " Give more space for displaying messages.
 set cmdheight=2
 
-set splitbelow
-set splitright
-
 set pastetoggle=<F10>       " pasting multiple lines with mouse leads to strange indentation, press F10 before pasting to prevent it
 set incsearch               " incremental search (start search while typing)
 
@@ -42,6 +39,7 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
 set nu                  " show line number
+set splitbelow
 set splitright          " splits vertical window to the right
 set nowrap
 set mouse=ar
@@ -141,7 +139,7 @@ autocmd FileType qf wincmd J
 " ---------------------------------------------------------------------
 
 " Move Commands for vim using h,j,k,l keys.
-map <silent> <leader>wc             :wincmd q<cr>
+map <silent> <leader>wc :wincmd q<cr>
 
 " Resize window
 nnoremap <Leader>+ :vertical resize +5<CR>
@@ -209,9 +207,9 @@ nnoremap <S-x> :bd<CR>
 " ----------------------------------------
 
 " Use Ctr-S to save
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+noremap <silent> <C-S>   :update<CR>
+vnoremap <silent> <C-S>  <C-C>:update<CR>
+inoremap <silent> <C-S>  <C-O>:update<CR><Esc>
 
 " Terminal mode configuration
 if has("nvim")

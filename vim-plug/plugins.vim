@@ -10,6 +10,9 @@ call plug#begin()
 
 " {{{ File Utilities
 
+Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-unimpaired'
 
