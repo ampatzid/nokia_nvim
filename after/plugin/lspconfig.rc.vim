@@ -69,16 +69,14 @@ end
 
 nvim_lsp.ccls.setup {
     on_attach = on_attach,
-    settings = {
-        cmd = {"ccls"},
-        filetypes = { "c", "cc", "cpp", "c++", "h", "hpp" },
-        init_options = {
-            cache = {
-                directory = "$CCLS_CACHE_PATH"
-                }
-            },
+    cmd = {"ccls"},
+    filetypes = { "c", "cc", "cpp", "c++", "h", "hpp" },
+    init_options = {
         root_dir = {
             root_pattern = {".ccls", "compile_commands.json"}
+        },
+        cache = {
+           directory = os.getenv("CCLS_CACHE_PATH")
         }
     }
 }
