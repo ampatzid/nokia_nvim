@@ -12,3 +12,4 @@ source $HOME/.config/nvim/settings/vim-gitgutter.vim
 source $HOME/.config/nvim/settings/vim-nerdtree.vim
 source $HOME/.config/nvim/settings/vim-netwr.vim
 source $HOME/.config/nvim/settings/vim-tagbar.vim
+source $HOME/.config/nvim/settings/barbar.rc.lua

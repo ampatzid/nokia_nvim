@@ -11,11 +11,11 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="acononedark"
+let g:colors_name="aconTest"
 
-hi Normal       guifg=#dddddd     guibg=#171928
+hi Normal     guifg=#eeedf7      guibg=#131024
 
-hi DiffDelete   guifg=#171928     guibg=#203040
+hi DiffDelete   guifg=#171928     guibg=#050409
 hi DiffAdd      guibg=#002851
 hi DiffChange   guibg=#450303
 hi DiffText     guibg=#990909     gui=none
@@ -36,17 +36,12 @@ hi Question     guifg=springgreen
 hi Search       guibg=#ffff7d     guifg=#000000
 hi SpecialKey   guifg=yellowgreen
 hi StatusLine   guibg=#102030     guifg=grey70    gui=none
-hi StatusLineNC guibg=#203040     guifg=grey50    gui=none
+hi StatusLineNC guibg=#050409     guifg=grey50    gui=none
 hi Title        guifg=indianred
 hi Visual       gui=none          guifg=white     guibg=#D04040
 hi WarningMsg   guifg=salmon
 hi Directory    guifg=#6699D0
-hi SignColumn   guifg=#0000FF     guibg=#203040
-hi TabLine      guifg=#556575     guibg=#101322
-hi TabLineFill  guifg=#556575     guibg=#101322
-hi TabLineSel   guifg=#556575     guibg=#101322
-hi TabLineSep   guifg=#556575     guibg=#101322
-hi TabLineSep2  guifg=#556575     guibg=#101322
+hi SignColumn   guifg=#0000FF     guibg=#050409
 
 if version >= 700 " Vim 7.x specific colors
     hi CursorLine   guifg=NONE    guibg=#101322 gui=NONE
@@ -77,3 +72,4 @@ hi Todo       guifg=orangered guibg=#171928 gui=none
 hi ExtraWhitespace ctermbg=red guibg=red
 
 "vim: sw=4
+

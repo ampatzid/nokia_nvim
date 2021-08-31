@@ -301,3 +301,5 @@ function! s:Highlight(args) range
   echo 'Error: First argument must be highlight number 1..99'
 endfunction
 command! -nargs=* -range Highlight call s:Highlight('<args>')
+
+nnoremap <silent> <leader>h :exe "Highlight" nr2char(getchar())<cr>
