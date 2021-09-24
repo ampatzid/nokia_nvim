@@ -47,7 +47,7 @@ set clipboard=unnamedplus   " yank now go to clipboard so can be paste everyware
 set relativenumber
 set spell
 set complete+=i
-set completeopt=menuone,noinsert
+set completeopt=menu,menuone,noinsert
 set shortmess+=c
 set showtabline=2
 

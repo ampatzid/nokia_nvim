@@ -5,6 +5,7 @@ endif
 lua << EOF
 
 local nvim_lsp = require('lspconfig')
+local util = require 'lspconfig/util'
 local protocol = require('vim.lsp.protocol')
 
 local on_attach = function(client, bufnr)
@@ -27,7 +28,7 @@ local on_attach = function(client, bufnr)
 
     -- Completion.
     require 'completion'.on_attach(client, bufnr)
-     --protocol.SymbolKind = { }
+    --protocol.SymbolKind = { }
     protocol.CompletionItemKind = {
         '', -- Text
         '', -- Method
@@ -71,10 +72,11 @@ nvim_lsp.ccls.setup {
     on_attach = on_attach,
     cmd = {"ccls"},
     filetypes = { "c", "cc", "cpp", "c++", "h", "hpp" },
+    root_dir = function(fname)
+      return util.root_pattern('compile_commands.json', '.ccls', 'compile_flags.txt', '.git')(fname)
+        or util.path.dirname(fname)
+    end,
     init_options = {
-        root_dir = {
-            root_pattern = {".ccls", "compile_commands.json"}
-        },
         cache = {
            directory = os.getenv("CCLS_CACHE_PATH")
         }
