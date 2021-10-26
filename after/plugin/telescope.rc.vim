@@ -96,7 +96,7 @@ nnoremap <Leader>ff :lua require('telescope.builtin').find_files()<CR>
 
 nnoremap <leader>fw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>fb :lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>ft :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>ft :lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap <leader>vrc :lua M.search_dotfiles()<CR>
 nnoremap <leader>gc :lua M.git_branches()<CR>
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>

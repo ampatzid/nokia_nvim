@@ -61,10 +61,12 @@ if has("nvim")
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
 
-    Plug 'nvim-lua/completion-nvim'
-    " Plug 'hrsh7th/cmp-nvim-lsp'
-    " Plug 'hrsh7th/cmp-buffer'
-    " Plug 'hrsh7th/nvim-cmp'
+    " Plug 'nvim-lua/completion-nvim'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'octaltree/cmp-look'
+    Plug 'onsails/lspkind-nvim'
+    Plug 'hrsh7th/nvim-cmp'
 
     Plug 'hoob3rt/lualine.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
