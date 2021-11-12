@@ -64,6 +64,7 @@ cmp.setup({
                 nvim_lsp = "[LSP]",
                 look = "[Dict]",
                 buffer = "[Buffer]",
+                path = "[Path]",
                 })[entry.source.name]
             return vim_item
         end
@@ -90,9 +91,17 @@ cmp.setup({
     -- sources = cmp.config.sources({
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'buffer' },
+      { name = 'buffer', keyword_length = 5},
+      { name = 'path' },
       { name = 'look' },
-    }
+    },
+
+    experimental = {
+    -- I like the new menu better! Nice work hrsh7th
+      native_menu = false,
+    -- Let's play with this for a day or two
+      ghost_text = not is_wsl,
+    },
       -- { name = 'vsnip'}, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
