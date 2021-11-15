@@ -93,7 +93,7 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'buffer', keyword_length = 5},
       { name = 'path' },
-      { name = 'look' },
+      { name = 'look', keyword_length = 4 },
     },
 
     experimental = {
