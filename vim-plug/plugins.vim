@@ -53,8 +53,8 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " {{{
 
 if has("nvim")
-    Plug 'kabouzeid/nvim-lspinstall'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'm-pilia/vim-ccls'
 
@@ -68,6 +68,9 @@ if has("nvim")
     Plug 'octaltree/cmp-look'
     Plug 'onsails/lspkind-nvim'
     Plug 'hrsh7th/nvim-cmp'
+
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
 
     Plug 'hoob3rt/lualine.nvim'
     Plug 'kyazdani42/nvim-web-devicons'

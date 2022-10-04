@@ -1,4 +1,5 @@
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:copletion_confirm_key = ""

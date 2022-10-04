@@ -1,71 +1,62 @@
-lua << EOF
--- config that activates keymaps and enables snippet support
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  return {
-    -- enable snippet support
-    capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
-  }
-end
+if !exists('g:nvim-lsp-installer')
+    finish
+endif
 
-local lua_settings = {
-    -- Configure lua language server for neovim development
-  Lua = {
-    runtime = {
-      -- LuaJIT in the case of Neovim
-      version = 'LuaJIT',
-      path = vim.split(package.path, ';'),
+lua << EOF
+
+local DEFAULT_SETTINGS = {
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        },
+        keymaps = {
+            -- Keymap to expand a server in the UI
+            toggle_server_expand = "<CR>",
+            -- Keymap to install a server
+            install_server = "i",
+            -- Keymap to reinstall/update a server
+            update_server = "u",
+            -- Keymap to uninstall a server
+            uninstall_server = "X",
+        },
     },
-    diagnostics = {
-      -- Get the language server to recognize the `vim` global
-      globals = {'vim'},
+
+    -- The directory in which to install all servers.
+    install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
+
+    pip = {
+        -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
+        -- and is not recommended.
+        --
+        -- Example: { "--proxy", "https://proxyserver" }
+        install_args = {"--proxy", "http://10.144.1.10:8080"},
     },
-    workspace = {
-      -- Make the server aware of Neovim runtime files
-      library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-      },
-    },
-  }
+
+    -- Controls to which degree logs are written to the log file. It's useful to set this to vim.log.levels.DEBUG when
+    -- debugging issues with server installations.
+    log_level = vim.log.levels.INFO,
+
+    -- Limit for the maximum amount of servers to be installed at the same time. Once this limit is reached, any further
+    -- servers that are requested to be installed will be put in a queue.
+    max_concurrent_installers = 4,
 }
 
--- lsp-install
-local function setup_servers()
-  require'lspinstall'.setup()
+local lsp_installer = require("nvim-lsp-installer")
 
-  -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
-  -- ... and add manually installed servers
-  --table.insert(servers, "clangd")
-  --:table.insert(servers, "sourcekit")
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
 
-  for _, server in pairs(servers) do
-    local config = make_config()
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
 
-    -- language specific config
-    if server == "lua" then
-      config.settings = lua_settings
-    end
-    if server == "sourcekit" then
-      config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
-    end
-    if server == "clangd" then
-      config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
-    end
-
-    require'lspconfig'[server].setup(config)
-  end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+    -- This setup() function is exactly the same as lspconfig's setup function.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
 EOF

@@ -62,11 +62,11 @@ local saga = require 'lspsaga'
 }
 EOF
 
-nnoremap <silent>K      <Cmd>Lspsaga hover_doc<CR>
-inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+" nnoremap <silent>K      <Cmd>Lspsaga hover_doc<CR>
+" inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 nnoremap <silent>gh     <Cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 
-nnoremap <silent> <space>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-vnoremap <silent> <space>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
-nnoremap <silent> <space>n <Cmd>Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> <space>p <Cmd>Lspsaga diagnostic_jump_prev<CR>
+" nnoremap <silent> <space>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+" vnoremap <silent> <space>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+" nnoremap <silent> <space>n <Cmd>Lspsaga diagnostic_jump_next<CR>
+" nnoremap <silent> <space>p <Cmd>Lspsaga diagnostic_jump_prev<CR>

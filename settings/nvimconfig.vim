@@ -138,6 +138,9 @@ endif
 
 autocmd FileType qf wincmd J
 
+" Show trailing whitespace:
+match ExtraWhitespace /\s\+\%#\@<!$/
+
 " }}}
 
 " {{{ Move Utilities

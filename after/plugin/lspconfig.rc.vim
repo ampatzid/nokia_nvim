@@ -20,7 +20,7 @@ local cmp_lsp = require 'cmp_nvim_lsp'
 local lspkind = require 'lspkind'
 
 lspkind.init({
-    with_text = true,
+    mode = 'symbol_text',
     preset = 'codicons',
 
     -- override preset symbols
@@ -54,6 +54,18 @@ lspkind.init({
       TypeParameter = '', -- TypeParameter
     },
 })
+
+vim.cmd [[
+highlight DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+highlight DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+highlight DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+highlight DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+
+sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
 
 cmp.setup({
 
@@ -91,7 +103,15 @@ cmp.setup({
     -- sources = cmp.config.sources({
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'buffer', keyword_length = 5},
+      {
+            name = 'buffer',
+            keyword_length = 5,
+            options = {
+                get_bufnrs = function()
+                    return vim.api.nvim_list_bufs()
+                end,
+            },
+      },
       { name = 'path' },
       { name = 'look', keyword_length = 4 },
     },
@@ -100,7 +120,7 @@ cmp.setup({
     -- I like the new menu better! Nice work hrsh7th
       native_menu = false,
     -- Let's play with this for a day or two
-      ghost_text = not is_wsl,
+      ghost_text = true
     },
       -- { name = 'vsnip'}, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
@@ -167,8 +187,15 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    -- buf_set_keymap('n', '<space>ca' , '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '<space>ca' , '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<space-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<space>p', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', '<space>n', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
