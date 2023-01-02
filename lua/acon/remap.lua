@@ -30,6 +30,12 @@ vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 
+--  Use Ctr-S to save
+local opts = { noremap = true }
+vim.keymap.set("n", "<C-s>", "<cmd>update<CR>", opts)
+vim.keymap.set("v", "<C-s>", "<C-C><cmd>update<CR>", opts)
+vim.keymap.set("i", "<C-s>", "<C-O><cmd>update<CR><Esc>", opts)
+
 -- Terminal mode configuration
 local augroup = vim.api.nvim_create_augroup
 local termGroup = augroup('TermGroup', {})
