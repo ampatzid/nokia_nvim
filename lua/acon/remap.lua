@@ -20,6 +20,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<leader>wc", "<cmd>wincmd q<CR>")
 
+vim.keymap.set("n", "<leader>vg", function () vim.cmd.vimgrep(vim.fn.expand("<cword>"), "%") end)
+
 -- Resize window
 vim.keymap.set("n", "<leader>+", "<cmd>vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -5<CR>")
