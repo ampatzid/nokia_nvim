@@ -15,6 +15,6 @@ vim.keymap.set("n", "<leader>cfh", function () vim.cmd('CclsCallHierarchy -float
 vim.keymap.set("n", "g", function () vim.cmd('g<CR>') end, opts)
 
 opts.noremap = false
-vim.keymap.set("n", "<leader>l", function () vim.cmd('<Plug>(yggdrasil-toggle-node') end, opts)
-vim.keymap.set("n", "<leader>h", function () vim.cmd('<Plug>(yggdrasil-close-node') end, opts)
-vim.keymap.set("n", "<CR>", function () vim.cmd('<Plug>(yggdrasil-execute-node') end, opts)
+vim.keymap.set("n", "<leader>l", "<Plug>(yggdrasil-toggle-node)", opts)
+vim.keymap.set("n", "<leader>h", "<Plug>(yggdrasil-close-node)", opts)
+vim.keymap.set("n", "<CR>", "<Plug>(yggdrasil-execute-node)>", opts)
