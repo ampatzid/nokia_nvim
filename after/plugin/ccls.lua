@@ -9,12 +9,25 @@ vim.g.ccls_float_width = 50
 vim.g.ccls_float_height = 20
 
 -- mapping commands
-local opts = { silent = true, buffer = true, noremap = true }
-vim.keymap.set("n", "<leader>ch", function () vim.cmd('CclsCallHierarchy') end, opts)
-vim.keymap.set("n", "<leader>cfh", function () vim.cmd('CclsCallHierarchy -float') end, opts)
-vim.keymap.set("n", "g", function () vim.cmd('g<CR>') end, opts)
+local augroup = vim.api.nvim_create_augroup
+local cclsGroup = augroup('CclsGroup', {})
+local autocmd = vim.api.nvim_create_autocmd
 
-opts.noremap = false
-vim.keymap.set("n", "<leader>l", "<Plug>(yggdrasil-toggle-node)", opts)
-vim.keymap.set("n", "<leader>h", "<Plug>(yggdrasil-close-node)", opts)
-vim.keymap.set("n", "<CR>", "<Plug>(yggdrasil-execute-node)>", opts)
+local opts = { silent = true, buffer = true, noremap = true }
+
+autocmd('FileType', {
+    group = cclsGroup,
+    pattern = 'yggdrasil',
+    callback = function ()
+      vim.keymap.set("n", "<leader>ch", function () vim.cmd('CclsCallHierarchy') end, opts)
+      vim.keymap.set("n", "<leader>cfh", function () vim.cmd('CclsCallHierarchy -float') end, opts)
+      vim.keymap.set("n", "q", function () vim.cmd('q<CR>') end, opts)
+
+      opts.noremap = false
+      vim.keymap.set("n", "<leader>l", "<Plug>(yggdrasil-toggle-node)", opts)
+      vim.keymap.set("n", "<leader>h", "<Plug>(yggdrasil-close-node)", opts)
+      vim.keymap.set("n", "<CR>", "<Plug>(yggdrasil-execute-node)>", opts)
+    end
+
+  })
+
