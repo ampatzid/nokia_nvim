@@ -80,7 +80,5 @@ return require('packer').startup(function(use)
   use ( 'folke/lsp-colors.nvim' )
   use ( 'norcalli/nvim-colorizer.lua' )
   use ( 'romgrk/barbar.nvim' )
-  use ( 'hrsh7th/vim-vsnip' )
-  use ( 'hrsh7th/vim-vsnip-integ' )
 
 end)

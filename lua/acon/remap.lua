@@ -11,6 +11,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "]l", "<cmd>lnext<CR>zz")
+
 vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz")
 
 -- Keep yanked string to buffer so that can be reused
@@ -34,9 +35,9 @@ vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 
 --  Use Ctr-S to save
 local opts = { noremap = true }
-vim.keymap.set("n", "<C-s>", "<cmd>update<CR>", opts)
-vim.keymap.set("v", "<C-s>", "<C-C><cmd>update<CR>", opts)
-vim.keymap.set("i", "<C-s>", "<C-O><cmd>update<CR><Esc>", opts)
+vim.keymap.set("n", "<C-S>", "<cmd>update<CR>", opts)
+vim.keymap.set("v", "<C-S>", "<C-C><cmd>update<CR>", opts)
+vim.keymap.set("i", "<C-S>", "<C-O><cmd>update<CR><Esc>", opts)
 
 -- Terminal mode configuration
 local augroup = vim.api.nvim_create_augroup
