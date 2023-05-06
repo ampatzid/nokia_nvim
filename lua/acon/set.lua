@@ -36,6 +36,7 @@ vim.opt.ruler = true              -- show the cursor position all the time
 vim.opt.nu = true                 -- show line number
 vim.opt.relativenumber = true     -- show relative numbers
 vim.opt.splitright = true         -- splits vertical window to the right
+vim.opt.splitbelow = true         -- splits vertical window to the right
 vim.opt.wrap = false              -- no line wrapping
 vim.opt.mouse = "ar"
 vim.opt.clipboard = "unnamedplus"   -- yank now go to clipboard so can be paste everyware
@@ -81,3 +82,17 @@ end
 
 -- Finding files - Search down into subfolders
 vim.opt.path:append '**'
+
+
+local augroup = vim.api.nvim_create_augroup
+local qfGroup = augroup('QuickFix', {})
+
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd( 'FileType', {
+    group = qfGroup,
+    pattern = 'qf',
+    callback = function ()
+      vim.cmd('wincmd J')
+    end
+  } )
