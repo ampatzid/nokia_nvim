@@ -3,7 +3,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-  'sumneko_lua',
+  'lua_ls',
 })
 
 -- setup nvim-cmp.
@@ -251,7 +251,7 @@ nvim_lsp.ccls.setup {
     }
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
