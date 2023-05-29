@@ -72,10 +72,10 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  use ( 'nvim-tree/nvim-web-devicons' )
   use ( 'm-pilia/vim-ccls' )
   use ( 'onsails/lspkind-nvim' )
   use ( 'hoob3rt/lualine.nvim' )
-  use ( 'kyazdani42/nvim-web-devicons' )
   use ( 'nvim-lua/popup.nvim' )
   use ( 'folke/lsp-colors.nvim' )
   use ( 'norcalli/nvim-colorizer.lua' )
