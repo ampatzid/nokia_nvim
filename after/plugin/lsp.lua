@@ -2,9 +2,9 @@ local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 
-lsp.ensure_installed({
-  'lua_ls',
-})
+-- lsp.ensure_installed({
+--   'lua_ls',
+-- })
 
 -- setup nvim-cmp.
 vim.cmd [[packadd nvim-cmp]]
@@ -180,17 +180,7 @@ cmp.setup({
             end
             luasnip.lsp_expand(args.body)
         end,
-    },
-  --[[
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-    end,
   },
-  ]]--
 
   experimental = cmp_experimental,
 })
