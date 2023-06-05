@@ -17,6 +17,7 @@ local nvim_lsp = require('lspconfig')
 local util = require('lspconfig/util')
 local protocol = require('vim.lsp.protocol')
 local lspkind = require('lspkind')
+local builtin = require('telescope.builtin')
 
 lspkind.init({
     mode = 'symbol_text',
@@ -219,6 +220,10 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<space>wl", function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
   vim.keymap.set("n", "<space>e", function () vim.lsp.diagnostic.show_line_diagnostics() end, opts)
   vim.keymap.set("n", "<space>q", function () vim.lsp.diagnostic.set_loclist() end, opts)
+
+  -- telescope keybindings
+  vim.keymap.set("n", "<leader>fd", function () builtin.lsp_definitions() end, opts)
+  vim.keymap.set("n", "<leader>fr", function () builtin.lsp_references() end, opts)
 end
 
 lsp.on_attach(on_attach)
