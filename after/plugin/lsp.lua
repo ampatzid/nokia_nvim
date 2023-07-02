@@ -124,7 +124,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
         end, { "i", "s" }),
 })
 
-local cmp_sources = lsp.defaults.cmp_sources({
+local cmp_sources_opts = {
   { name = 'nvim_lsp' },
   {
         name = 'buffer',
@@ -137,7 +137,11 @@ local cmp_sources = lsp.defaults.cmp_sources({
   },
   { name = 'path' },
   { name = 'look', keyword_length = 4 },
-})
+}
+
+local cmp_sources = lsp.defaults.cmp_sources()
+
+cmp_sources = cmp_sources_opts
 
 local cmp_formatting = {
     format = function(entry, vim_item)
