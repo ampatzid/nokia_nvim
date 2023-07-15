@@ -83,7 +83,6 @@ end
 -- Finding files - Search down into subfolders
 vim.opt.path:append '**'
 
-
 local augroup = vim.api.nvim_create_augroup
 local qfGroup = augroup('QuickFix', {})
 
