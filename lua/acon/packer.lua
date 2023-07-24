@@ -36,13 +36,14 @@ return require('packer').startup(function(use)
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
 	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
+	  	  vim.cmd('colorscheme rose-pine')
+	   end
   })
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} )
   use ( 'nvim-treesitter/playground' )
-  use ( 'nvim-treesitter/nvim-treesitter-context' )
+  -- use ( 'nvim-treesitter/nvim-treesitter-context' )
 
   -- Manage Repo
   use ( 'ThePrimeagen/git-worktree.nvim' )
