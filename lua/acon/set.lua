@@ -23,6 +23,7 @@ vim.opt.shiftwidth = 4      -- use 4 spaces for the autoindenting feature
 vim.opt.tabstop = 4         -- use 4 spaces when pressing <TAB> key
 vim.opt.smarttab = true     -- at beginning of line delete shiftwidth spaces when pressing <Backspace> key
 vim.opt.softtabstop = 4
+vim.g.polyglot_disabled = {'autoindent'}
 
 -- """"""""""" Useful convenience settings """"""""""""""""""""""""""
 vim.opt.tags = {"./tags","tags"}  -- always load our tags file change BNG_ROOT in .bashrc and reread .bashrc after changing
