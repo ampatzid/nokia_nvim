@@ -54,7 +54,8 @@ return require('packer').startup(function(use)
   -- Manage Repo
   use ( 'ThePrimeagen/git-worktree.nvim' )
   use ( 'tpope/vim-fugitive' )
-  use ( 'airblade/vim-gitgutter' )
+  use { 'lewis6991/gitsigns.nvim' }
+  -- use ( 'airblade/vim-gitgutter' )
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -88,5 +89,8 @@ return require('packer').startup(function(use)
   use ( 'folke/lsp-colors.nvim' )
   use ( 'norcalli/nvim-colorizer.lua' )
   use ( 'romgrk/barbar.nvim' )
+
+  -- navigation
+  use ( 'christoomey/vim-tmux-navigator' )
 
 end)

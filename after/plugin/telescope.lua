@@ -11,9 +11,14 @@ require('telescope').setup {
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
 
         mappings = {
+            n = {
+                ["<C-q>"] = actions.send_to_qflist,
+                ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
             i = {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
+                ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
                 ["<C-h>"] = 'which_key',
             },
         }
@@ -50,7 +55,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fs', function()
     builtin.grep_string({search = vim.fn.input("Grep For > ")})
 end)
-vim.keymap.set('n', '<leader>fw', live_grep_args_shortcuts.grep_word_under_cursor, {})
+vim.keymap.set('n', '<leader>fw', live_grep_args_shortcuts.grep_word_under_cursor, {noremap = true})
 -- vim.keymap.set('n', '<leader>fw', function()
 -- builtin.grep_string({search = vim.fn.expand("<cword>")})
 -- end)
