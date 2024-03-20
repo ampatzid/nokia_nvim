@@ -41,17 +41,28 @@ require('telescope').setup {
           -- theme = "dropdown", -- use dropdown theme
           -- theme = { }, -- use own theme spec
           -- layout_config = { mirror=true }, -- mirror preview pane
-        }
+        },
+        [ 'ui-select' ] = {
+          require('telescope.themes').get_dropdown(),
+        },
     }
 }
 
 local builtin = require('telescope.builtin')
+local tsTheme = require('telescope.themes')
 -- local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+-- vim.keymap.set('n', '<space>/', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>sf', function()
+    builtin.current_buffer_fuzzy_find(tsTheme.get_dropdown {
+            winblend = 10,
+            previewer = false,
+        })
+end, { desc = '[/] Fuzzily search in current buffer' })
 vim.keymap.set('n', '<leader>fs', function()
     builtin.grep_string({search = vim.fn.input("Grep For > ")})
 end)

@@ -9,13 +9,17 @@ return require('packer').startup(function(use)
 
   -- File explores
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
+	  'nvim-telescope/telescope.nvim', branch = '0.1.x',
+	  -- or                            , tag = '0.1.0',
 	  requires = {
         {'nvim-lua/plenary.nvim'},
         { "nvim-telescope/telescope-live-grep-args.nvim" },
+        { 'nvim-telescope/telescope-ui-select.nvim' },
+        -- Useful for getting pretty icons, but requires a Nerd Font.
+        { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
+        require("telescope").load_extension("ui-select")
         require("telescope").load_extension("live_grep_args")
     end
   }
@@ -82,6 +86,12 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  -- Debugger Support
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+  use ( 'theHamsta/nvim-dap-virtual-text' )
+  use ( 'nvim-telescope/telescope-dap.nvim' )
+
+  -- Utilities
   use ( 'nvim-tree/nvim-web-devicons' )
   use ( 'm-pilia/vim-ccls' )
   use ( 'onsails/lspkind-nvim' )
